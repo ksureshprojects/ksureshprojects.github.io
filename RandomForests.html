@@ -13116,16 +13116,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Random-Forrest-Classification">Random Forrest Classification<a class="anchor-link" href="#Random-Forrest-Classification">&#182;</a></h2><blockquote><p>Sources: <br/>
-<a href="https://towardsdatascience.com/understanding-random-forest-58381e0602d2">https://towardsdatascience.com/understanding-random-forest-58381e0602d2</a> <br/>
-<a href="https://towardsdatascience.com/random-forest-in-python-24d0893d51c0">https://towardsdatascience.com/random-forest-in-python-24d0893d51c0</a> <br/>
-<a href="https://medium.com/@srnghn/the-mathematics-of-decision-trees-random-forest-and-feature-importance-in-scikit-learn-and-spark-f2861df67e3">https://medium.com/@srnghn/the-mathematics-of-decision-trees-random-forest-and-feature-importance-in-scikit-learn-and-spark-f2861df67e3</a> <br/>
-<a href="https://medium.com/all-things-ai/in-depth-parameter-tuning-for-random-forest-d67bb7e920d">https://medium.com/all-things-ai/in-depth-parameter-tuning-for-random-forest-d67bb7e920d</a> <br/>
-<a href="https://blog.frankfurt-school.de/wp-content/uploads/2018/10/Neural-Networks-vs-Random-Forests.pdf">https://blog.frankfurt-school.de/wp-content/uploads/2018/10/Neural-Networks-vs-Random-Forests.pdf</a> <br/>
-<a href="https://papers.nips.cc/paper/5234-mondrian-forests-efficient-online-random-forests.pdf">https://papers.nips.cc/paper/5234-mondrian-forests-efficient-online-random-forests.pdf</a> <br/>
-<a href="https://medium.com/mlrecipies/mondrian-forests-making-random-forests-better-and-efficient-b27814c681e5">https://medium.com/mlrecipies/mondrian-forests-making-random-forests-better-and-efficient-b27814c681e5</a></p>
-</blockquote>
-<p>A random forest, like its name implies, consists of a large number of individual decision trees that operate as an ensemble. Each individual tree in the random forest spits out a class prediction and the class with the most votes becomes our model’s prediction.</p>
+<h2 id="Random-Forrest-Regression">Random Forrest Regression<a class="anchor-link" href="#Random-Forrest-Regression">&#182;</a></h2><p>A random forest, like its name implies, consists of a large number of individual decision trees that operate as an ensemble. Each individual tree in the random forest spits out a class prediction and the class with the most votes becomes our model’s prediction.</p>
 <p>The prerequisites for random forest to perform well are:</p>
 <ul>
 <li>There needs to be some actual signal in our features so that models built using those features do better than random guessing </li>
@@ -21177,9 +21168,30 @@ Variable: B                    Importance: 0.0
 <h4 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">&#182;</a></h4><p>The random forest model yielded significantly better results than the baseline linear regression model. The initial hypothesis that 'Avg Rooms per Dwelling' would be an important feature was proved true by the feature importance values listed above. These values also show that the 'proportion of low status individuals living in a section' was also an important feature. In the package used for this implementation of random forests, feature importance is calculated as an average over all nodes, in all trees, of the decrease in impurity (gini impurity) for a particular node, weighted by the probability of reaching that node.</p>
 <p>The fact that the model performs well on the test set is an indication that it could generalise well to new data. However, this will depend on how representative this data is of the larger population. Above, we see that the best results are obtained when an ensemble of 500 trees are used in the model. For this dataset, the margin of difference between the performance of models with different ensemble sizes is minimal. Generally, the greater the number of trees the less correlation there is between the predictions of each tree, thus resulting in models that are more resistant to overfitting on training data. The only down side to a greater number of trees is the time required to train the model. The maximum depth of trees within a random forest model is another hyperparameter that can be tuned to improve results. Generally, a model in which tree depth is unrestricted could be more prone to overfitting on the training set. However, in the case above we observe that increasing the tree depth only results in greater accuracy of the model when applied on the test set. A more in depth cross validation exercise with more data, across more values of the hyperparameter, could be conducted to better understand the role of tree depth.</p>
 <p>Often random forest models out perform other methods such as neural networks, however this is generally only true for tabular data. A limitation of the random forest regression model that is that it cannot predict values outside of the range of the data that was used to train the model. A benefit is that a random forest model can still be trained on data with missing values as not all trees consider all features during training. The number of variations and hyperparameters in neural networks means that while they have the potential to outperform random forest models, a large amount of time and effort is required to do this, as data requires greater pre-processing and more hyperparameters exist that need to be tuned.</p>
+<h6 id="Sources:">Sources:<a class="anchor-link" href="#Sources:">&#182;</a></h6><blockquote><p><a href="https://towardsdatascience.com/understanding-random-forest-58381e0602d2">https://towardsdatascience.com/understanding-random-forest-58381e0602d2</a> <br/>
+<a href="https://towardsdatascience.com/random-forest-in-python-24d0893d51c0">https://towardsdatascience.com/random-forest-in-python-24d0893d51c0</a> <br/>
+<a href="https://medium.com/@srnghn/the-mathematics-of-decision-trees-random-forest-and-feature-importance-in-scikit-learn-and-spark-f2861df67e3">https://medium.com/@srnghn/the-mathematics-of-decision-trees-random-forest-and-feature-importance-in-scikit-learn-and-spark-f2861df67e3</a> <br/>
+<a href="https://medium.com/all-things-ai/in-depth-parameter-tuning-for-random-forest-d67bb7e920d">https://medium.com/all-things-ai/in-depth-parameter-tuning-for-random-forest-d67bb7e920d</a> <br/>
+<a href="https://blog.frankfurt-school.de/wp-content/uploads/2018/10/Neural-Networks-vs-Random-Forests.pdf">https://blog.frankfurt-school.de/wp-content/uploads/2018/10/Neural-Networks-vs-Random-Forests.pdf</a> <br/>
+<a href="https://papers.nips.cc/paper/5234-mondrian-forests-efficient-online-random-forests.pdf">https://papers.nips.cc/paper/5234-mondrian-forests-efficient-online-random-forests.pdf</a> <br/>
+<a href="https://medium.com/mlrecipies/mondrian-forests-making-random-forests-better-and-efficient-b27814c681e5">https://medium.com/mlrecipies/mondrian-forests-making-random-forests-better-and-efficient-b27814c681e5</a></p>
+</blockquote>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
 </div>
     </div>
   </div>
